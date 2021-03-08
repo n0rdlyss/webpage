@@ -4,22 +4,23 @@ $(function() {
 		$(document).ready(function () {
 			$('body').removeClass('is-loading');
 
-			$('.thumbnails').magnificPopup({
-				delegate: 'a',
-				type: 'image',
-				removalDelay: 500,
-				callbacks: {
-					beforeOpen: function () {
-						this.st.image.markup = this.st.image.markup.replace('mfp-figure', 'mfp-figure mfp-with-anim');
-						this.st.mainClass = 'mfp-move-from-top';
-					}
-				},
-				closeOnContentClick: true,
-				enableEscapeKey: true,
-				midClick: true,
-				image: {
-					verticalFit: false
-				}
+			$('.open-popup-link').each(function() {
+				var template = $(this).find("script[type='text/template']").html();
+				$(this).magnificPopup({
+					items: {
+						type: 'inline',
+						src: template,
+					},
+					callbacks: {
+						beforeOpen: function () {
+							this.st.el.markup = this.st.image.markup.replace('mfp-figure', 'mfp-figure mfp-with-anim');
+							this.st.mainClass = 'mfp-move-from-top';
+						}
+					},
+					closeOnContentClick: true,
+					enableEscapeKey: true,
+					midClick: true,
+				});
 			});
 		});
 });

@@ -2486,6 +2486,10 @@ button:disabled,
 	height: calc(100vh) !important;
 }
 
+.mfp-container::before {
+	height: 0px !important;
+}
+
 .mfp-zoom-out-cur {
 	overflow: hidden;
 }
@@ -2603,4 +2607,32 @@ body.is-covered #wrapper {
 		padding: 2em 0 2em 0;
 	}
 
+}
+
+
+
+
+.details {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 6rem;
+}
+
+.details img {
+	margin-bottom: 2em;
+	max-width: 90%;
+}
+
+.details iframe {
+	width: 1080px;
+	height: 608px;
+}
+
+@media screen and (max-width: 1080px) {
+
+	.details iframe {
+		width: 560px;
+		height: 315px;
+	}
 }
